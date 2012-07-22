@@ -10,8 +10,8 @@ import Entity
 #                       create characters to populate the map.
 class CharacterEntity(Entity):
     
-    def __init__(self, loc, image, ai, stats):
-        Entity.__init__(loc, image)
+    def __init__(self, image, ai, stats):
+        Entity.__init__(image)
         self.ai = ai
         set_Statistics(stats)
         

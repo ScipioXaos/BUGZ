@@ -7,9 +7,9 @@
 #                       X-Y coordinate pair in a more efficient manner.
 class Location:
     
-    def __init__(self, x, y):
-        self.x = x
+    def __init__(self, y, x):
         self.y = y
+        self.x = x
         
     def get_x(self):
         return self.x
@@ -17,9 +17,9 @@ class Location:
     def get_y(self):
         return self.y
     
-    def set_coords(self, x, y):
-        self.x = x
+    def set_coords(self, y, x):
         self.y = y
+        self.x = x
         
     def set_x(self, x):
         self.x = x

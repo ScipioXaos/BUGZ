@@ -4,16 +4,15 @@
 
 # Class Description:    Entity is the most abstract form of entities in BUGZ!
 class Entity:
-    def __init__(self, loc, image):
-        self.x = loc.get_x()
-        self.y = loc.get_y()
+    def __init__(self, image):
         self.image = image
     
     def occupy(self, loc, lvl):
-        map.lvl[loc.get_x][loc.get_y].set_occupant(self)
+        lvl[loc.get_y][loc.get_x].set_occupant(self)
+        self.location = loc
 
     def remove(self):
-        world.map[self.x][self.y].remove_occupant(False)
+        lvl[self.location.get_y][self.location.get_x].remove_occupant(False)
         
     def get_image(self):
         return self.image

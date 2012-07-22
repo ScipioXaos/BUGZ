@@ -9,14 +9,16 @@ import MapParser
 class Map:
     
     def __init__(self, mapfile):        
-        self.map = MapParser.create_map(mapfile)
+        self.name, self.map, self.spawn = MapParser.create_map(mapfile)
         
-    def get_occupant(self):
-        self
+    def get_map_name(self):
+        return self.name
+        
+    def get_occupant(self, loc):
+        self.map[loc.get_y][loc.get_x].get_occupant()
     
     def is_occupied(self, loc):
-        ''' Checks if a given space on the map and returns True if occupied. '''
-        return self.map[loc.get_x()][loc.get_x()].get_occupant() is not None
+        return self.map[loc.get_y()][loc.get_x()].get_occupant() is not None
 
 # Class Description:    Tile is the reperesntation of a single grid in a Map.
 #                       Tile instances are stored in a Map instance and hold all
@@ -27,9 +29,10 @@ class Tile:
     
     occupant = None
     
-    def __init__(self, image, passable):
+    def __init__(self, image, passable, occupant):
         self.image = image
-        self.passable = passable 
+        self.passable = passable
+        self.occupant = occupant
         
     def get_occupant(self):
         return self.occupant
@@ -42,7 +45,9 @@ class Tile:
         
     def remove_occupant(self, get):
         if get:
-            return self.occupant
+            temp = occupant
+            self.occupant = None
+            return temp
         self.occupant = None
         
     def set_passable(self, bool_):
