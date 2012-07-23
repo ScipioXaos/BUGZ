@@ -2,7 +2,7 @@
 # File Description:     MapParser.py contains the processing code used to take
 #                       a <LevelName>.map file and turn it into a Map instance.
 
-from PIL import Image
+from PIL import Image, ImageTk
 from engine.entities import Entity, Character_Entity
 import Map
 import Location

@@ -2,6 +2,7 @@
 # File Description:     Map.py is used to represent "maps" or levels that exist
 #                       in the game.  Maps are held inside a World object.
 
+from PIL import Image
 import MapParser
 
 # Class Description:    Map is the object used to represent a level in BUGZ!
@@ -55,3 +56,16 @@ class Tile:
         
     def is_passable(self):
         return self.passable
+    
+    def get_image(self):
+        if occupant != None:
+            bottom = self.image
+            top = occupant.get_image
+            
+            r, g, b, a = top.split()
+            top = Image.merge("RGB", (r, g, b))
+            mask = Image.merge("L", (a,))
+            bottom.paste(top, (0, 0), mask)
+            return bottom
+        else:
+            return self.image

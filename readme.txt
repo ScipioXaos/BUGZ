@@ -1,5 +1,5 @@
 BUGZ! - Python game to teach students about Python!
-v 0.0.7
+v 0.1.3
 
 The implementation/modification of the Udacity student-made games.  
 
